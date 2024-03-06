@@ -1,0 +1,112 @@
+#collumns{
+    display: flex;
+}
+#collumn1{
+    flex: 50%;
+}
+#collumn2{
+    flex: 50%;
+}
+
+#Categories{
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.5cap; 
+    margin-left: 4.5cap;
+    margin-bottom: 0.7cap;
+}
+
+#divTaxInput{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+
+#divCategoryName{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+#test{
+    display: flex;
+    justify-content: center;
+
+}
+
+#subCollumns1 {
+    display: flex;
+    justify-content: space-between;
+    width: 84%;
+}
+
+#MenuItens{
+    justify-content: left;
+    display: none;
+    flex-wrap: wrap;
+    align-content: center;
+    text-align: left;
+
+    margin-left: 0.3cap;
+    margin-right: 0.1cap;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2cap;
+    font-weight: bold;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.5cap;
+}
+
+.input-control input {
+    border: 2px solid #cccbcb;
+    border-radius: 4px;
+    display: block;
+    font-size: 1.5cap;
+    padding: 10px;
+    
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.sucess input {
+    border-color: #cccbcb;
+}
+
+.input-control.error input {
+    border-color: red;
+}
+
+.input-control .error {
+    color: red;
+    font-size: 1.3cap;
+    height: 13px;
+}
+
+
+.input-sucess {
+    border: 2px solid;
+    border-radius: 4px;
+    display: block;
+    font-size: 1.5cap;
+    padding: 10px;
+    border-color: #cccbcb;
+}
+
+.input-error {
+    border: 2px solid;
+    border-radius: 4px;
+    display: block;
+    font-size: 1.5cap;
+    padding: 10px;
+    border-color: red;
+}
+
+
