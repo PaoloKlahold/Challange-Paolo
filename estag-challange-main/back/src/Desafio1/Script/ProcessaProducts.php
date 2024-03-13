@@ -1,4 +1,7 @@
 <?php
+
+header('Access-Control-Allow-Origin: http://localhost:5173');
+
 $host = "pgsql_desafio";
 $db = "applicationphp";
 $user = "root";
@@ -11,45 +14,42 @@ try {
 }   catch (PDOException $e) {
     
     die($e->getMessage());
-}
+} 
 
+print_r($_POST);
 
 if (!empty($_POST)) {
-
-    if($_POST['ProductNameInput'] == '' || $_POST['ProductNameInput'] == null){
-        header("Location: ../Products.php?msgErro=NomeIncompativel...");
-    } else if($_POST['AmontInput'] <= 0){
-        header("Location: ../Products.php?msgErro=AmountNegativo...");
-    } else if(empty($_POST['dropdownlistCategory'])){
-        header("Location: ../Products.php?msgErro=CategoriaPadrao...");
-    } else if($_POST['UnitInput'] < 0){
-        header("Location: ../Products.php?msgErro=PriceNegativo...");
-    } else if ($_POST['UnitInput'] >= 0 || $_POST['AmontInput'] > 0){
+    
         try {
-            $name = htmlentities($_POST['ProductNameInput']);
-            $amount = $_POST['AmontInput'];
-            $dropdownlistCategory = $_POST['dropdownlistCategory'];
-            $UnitInput = $_POST['UnitInput'];
+            $name = htmlentities($_POST['productName']);
+            $price = htmlentities($_POST['productPrice']);
+            $amount = htmlentities($_POST['productAmount']);
+            $categorie = $_POST["SelectProducts"];
 
-            $statement = $myPDO->prepare("INSERT INTO public.products (productsname, price, amount, category_code) VALUES ('$name', $UnitInput, $amount, $dropdownlistCategory);");
+            $statement = $myPDO->prepare("INSERT INTO public.products 
+                                        (productsname, price, amount, category_code) 
+                                        VALUES 
+                                        ('$name', $price, $amount, $categorie );");
             if ( $statement->execute()) {
-             header("Location: ../Products.php?msgSucesso=Cadastro realizado com sucesso!");
+                echo ("cadastrou!\n");
+                
+             
             } else {
-                header("Location: ../Products.php?msgSucesso=Fracasso!");
+                echo ("Cadastro realizado com Fracasso!");
+                
             }
         } catch (PDOException $e) {
-            header("Location: ../Products.php?msgErro=Falha ao cadastrar...");
-        }
-    } else {
-        header("Location: ../Products.php?msgErro=NaoNumero...");
-    }
-
+            echo ("Falha ao cadastrar");
+            
+        };
     
 }  else {
-    header("Location: ../Products.php?msgErro=Erro de acesso.");
+    echo ("Post vazio");
+    
 }
 
 
 die();
+
 
 ?>

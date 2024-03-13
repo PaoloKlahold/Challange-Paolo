@@ -1,4 +1,7 @@
 <?php
+
+header('Access-Control-Allow-Origin: http://localhost:5173');
+
 $host = "pgsql_desafio";
 $db = "applicationphp";
 $user = "root";
@@ -17,9 +20,11 @@ try {
 if (!empty($_POST)) {
     
     if($_POST['CategoryName'] == '' || $_POST['CategoryName'] == null){
-        header("Location: ../Categories.php?msgErro=NomeIncompativel...");
+        
+        echo ("Nome vazio");
     } else if($_POST['CategoryTax'] < 0){
-        header("Location: ../Categories.php?msgErro=TaxNegativo...");
+        echo ("Tax negativo");
+       
     } else if ($_POST['CategoryTax'] >= 0){
         try {
             $name = htmlentities($_POST['CategoryName']);
@@ -27,23 +32,30 @@ if (!empty($_POST)) {
 
             $statement = $myPDO->prepare("INSERT INTO public.categories (categoriesname, tax) VALUES ('$name', $tax);");
             if ( $statement->execute()) {
-             header("Location: ../Categories.php?msgSucesso=Cadastro realizado com sucesso!");
+                echo ("cadastrou!\n");
+                
+             
             } else {
-                header("Location: ../Categories.php?msgSucesso=Fracasso!");
+                echo ("Cadastro realizado com Fracasso!");
+                
             }
         } catch (PDOException $e) {
-            header("Location: ../Categories.php?msgErro=Falha ao cadastrar...");
+            echo ("Falha ao cadastrar");
+            
         };
     } else {
-        header("Location: ../Categories.php?msgErro=TaxNaoNumero...");
+        echo ("TaxNaoNumero");
+        
     }
 
     
 }  else {
-    header("Location: ../Categories.php?msgErro=Erro de acesso.");
+    echo ("Post vazio");
+    
 }
 
 
 die();
+
 
 ?>

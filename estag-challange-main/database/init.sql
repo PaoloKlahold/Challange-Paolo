@@ -26,9 +26,7 @@ CREATE TABLE PRODUCTS (
 CREATE TABLE HISTORY (
     CODE SERIAL PRIMARY KEY,
     TOTAL NUMERIC(10,2),
-    TAX NUMERIC(10,2),
-    HUSERID INTEGER,
-    CONSTRAINT FK_USER FOREIGN KEY (HUSERID) REFERENCES USERS(USERID)
+    TAX NUMERIC(10,2)
 );
 
 CREATE TABLE DETAILS (
@@ -50,3 +48,11 @@ CREATE TABLE HOME (
     HTOTAL NUMERIC(10,2),
     CONSTRAINT FK_PRODUCT FOREIGN KEY (PRODUCT_CODE) REFERENCES PRODUCTS(CODE)
 );
+
+INSERT INTO public.categories(
+	categoriesname, tax)
+	VALUES ('Fruits', 20), ('Eletrical', 10);
+
+INSERT INTO public.products(
+	 productsname, price, amount, category_code)
+	VALUES ( 'Apple', 0.5, 45, 1), ('Computer', 600, 4, 2);

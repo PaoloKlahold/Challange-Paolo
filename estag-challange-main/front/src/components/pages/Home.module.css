@@ -1,0 +1,54 @@
+.collumns{
+    display: flex;
+}
+
+.collumn1{
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+}
+.collumn2{
+    flex: 50%;
+    justify-content: center;
+}
+
+.Principalform {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    width: 70%;
+}
+
+.subdiv{
+    margin-top: 10vh;
+    
+}
+
+.Subcollum1{
+    display: flex;
+    
+    gap: 2%;
+}
+
+.input_control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.5cap;
+}
+
+.input_control input {
+    border: 2px solid #cccbcb;
+    border-radius: 4px;
+    display: block;
+    font-size: 1.5cap;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+.divflutuante {
+    position: sticky;
+    border-radius: 2cap;
+    bottom: 0.1cap;
+    background-color: rgba(255, 255, 255, 0.8);
+}

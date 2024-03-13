@@ -1,6 +1,8 @@
 <?php 
-require_once 'User.php';
-session_start();
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: http://localhost:5173');
+
+
 $HomeCompras = array();
 $host = "pgsql_desafio";
 $db = "applicationphp";
@@ -29,15 +31,15 @@ try {
         $TaxT = 0;
         $TotalT = 0;
         foreach ($HomeCompras as $h) {
-            $TaxT = ($TaxT + ($h['htotal'] * ($h['tax'] / 100)));
+            $TaxT = ($TaxT + (($h['price'] * $h['hamount']) * ($h['tax'] / 100)));
             $TotalT = ($TotalT + $h['htotal']);
         }
         
-        $thisid = getuserIdByEmail($_SESSION['ActualUser']);
-        $sqladdHistory = $myPDO->prepare("INSERT INTO public.HISTORY (Total, Tax, huserid) VALUES ($TotalT, $TaxT, $thisid);");
+        
+        $sqladdHistory = $myPDO->prepare("INSERT INTO public.HISTORY (Total, Tax) VALUES ($TotalT, $TaxT);");
             if ($sqladdHistory->execute()) {
             } else {
-                header("Location: ../Home.php?ErroHistorico!");
+                header("erro insert em hist");
             }
 
         $HistoryCodeActualarray = array();
@@ -68,7 +70,7 @@ try {
                 ($HistoryCodeActual, $DetailsProductCode, $DetailsAmount, $DetailsPrice, $Detailstax);");
             if ($sqladdDetails->execute()) {
             } else {
-                header("Location: ../Home.php?msgSucesso=Fracasso!");
+                header("Erro ao insert em details");
             }
         }
 
@@ -76,7 +78,6 @@ try {
     try {
     $stmt = $myPDO->prepare($sqlDELETEHOME);
     if ($stmt->execute()) {
-        header("Location: ../History.php?TudoRealizadoELimpo...");
     }
     else {
     die("Falha ao executar a SQL.. #2");
@@ -85,6 +86,6 @@ try {
     die($e->getMessage());
 }
     } else{
-        header("Location: ../Home.php?NadaNoCarrinho...");
+        echo("Nada no carrinho");;
     }
 ?>

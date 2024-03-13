@@ -1,4 +1,7 @@
 <?php
+
+header('Access-Control-Allow-Origin: http://localhost:5173');
+
 $host = "pgsql_desafio";
 $db = "applicationphp";
 $user = "root";
@@ -15,57 +18,38 @@ try {
 
 
 if (!empty($_POST)) {
-    
-    if(empty($_POST['dropdownlistProduct'])){
-        header("Location: ../Home.php?msgErro=opcaonaoescolhida...");
-    } else if($_POST['AmontInput'] <= 0){
-        header("Location: ../Home.php?msgErro=AmountNegativo...");
-    } else if ($_POST['AmontInput'] > 0){
-        try {
-            $values = array();
-            $code = htmlentities($_POST['dropdownlistProduct']);
-            $amount = $_POST['AmontInput'];
 
-            $sql3 = "SELECT pp.code, pp.price, pc.tax FROM public.products as pp, public.categories as pc WHERE pp.category_code = pc.code";
-            try {
-                $stmt = $myPDO->prepare($sql3);
-                if ($stmt->execute()) {
-                $values = $stmt->fetchAll();
-                }
-                else {
-                die("Falha ao executar a SQL.. #2");
-                }
-            } catch (PDOException $e) {
-                die($e->getMessage());
-            }
-            foreach ($values as $v) {
-                if ($v['code'] == $code) {
-                    $price = $v['price'];
-                    $tax = $v['tax'];
-                }
-            }
-            $total = ($price * $amount);
+    try {
+
+        $name = $_POST['SelectProducts'];
+        $tax = $_POST['Tax'];
+        $amount = $_POST['Amount'];
+        $price = $_POST['Price'];
+        $total = $price * $amount + (($price * $amount) * ($tax / 100));
+
+        $statement = $myPDO->prepare("INSERT INTO public.home (product_code, price, hamount, htotal) VALUES ($name, $price, $amount, $total);");
+        if ( $statement->execute()) {
+            echo ("cadastrou!\n");
             
-            $statement = $myPDO->prepare("INSERT INTO public.HOME (PRODUCT_CODE, PRICE, HAMOUNT, HTOTAL) VALUES ($code, $price, $amount, $total);");
-            
-            if ( $statement->execute()) {
-             header("Location: ../Home.php?msgSucesso=Cadastro realizado com sucesso!");
-            } else {
-                header("Location: ../Home.php?msgSucesso=Fracasso!");
-            }
-        } catch (PDOException $e) {
-            header("Location: ../Home.php?msgErro=Falha ao cadastrar...");
-        };
+        
         } else {
-            header("Location: ../Home.php?msgErro=AmountNaoNumero...");
-    }
+            echo ("Cadastro realizado com Fracasso!");
+            
+        }
+    } catch (PDOException $e) {
+        echo ("Falha ao cadastrar");
+        
+    };
+
 
     
 }  else {
-    header("Location: ../Categories.php?msgErro=Erro de acesso.");
+    echo ("Post vazio");
+    
 }
 
 
 die();
+
 
 ?>
