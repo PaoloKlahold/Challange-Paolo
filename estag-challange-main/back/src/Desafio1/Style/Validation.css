@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+
+.TwoCollumns{
+    display: flex;
+}
+
+.Collumn11{
+    flex: 50%;
+}
+.Collumn22{
+    flex: 50%;
+}
+
+#form {
+    width: 100%;
+    margin: 2cap;
+    padding: 20px;
+    font-size: 12px;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.input-control input {
+    border: 2px solid #cccbcb;
+    border-radius: 4px;
+    display: block;
+    font-size: 1.5cap;
+    padding: 10px;
+    
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.sucess input {
+    border-color: #cccbcb;
+}
+
+.input-control.error input {
+    border-color: red;
+}
+
+.input-control .error {
+    color: red;
+    font-size: 1.3cap;
+    height: 13px;
+}

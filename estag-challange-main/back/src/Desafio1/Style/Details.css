@@ -1,0 +1,17 @@
+#collumns{
+    display: flex;
+}
+#collumn1{
+    flex: 50%;
+    width: 50%;
+    margin-left: 3cap;
+}
+#Details{
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.5cap; 
+    margin-left: 2cap;
+}
+#collumn2{
+    flex: 50%;
+}

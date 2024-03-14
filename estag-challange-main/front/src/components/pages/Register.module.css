@@ -1,0 +1,64 @@
+
+.divform {
+    display: flex;
+    justify-content: center;
+}
+.invisible{
+    display: none;
+}
+
+.divform  form{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.068), 0 6px 20px 0 rgba(0, 0, 0, 0.075);
+    border-style: solid;
+    border-color: rgb(175, 173, 173);
+    border-width: 1px;
+    border-radius: 7px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    width: 50vh;
+
+    margin-top: 10vh;
+    padding: 3vh;
+    padding-bottom: 1vh;
+
+    gap: 0.4vh;
+}
+
+
+
+.divform form div{
+    width: 80%;
+}
+
+.ButtonSubmit{
+    margin: 0.1cap;
+    font-size: 1.3cap;
+    
+    border-width: 0.1cap;
+    border-radius: 0.10cm;
+    background-color: #adaafd;
+    text-align: center;
+
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    height: 60%;
+    width: 12vh;
+    cursor: pointer;
+}
+
+.error{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: red;
+}
+
+.login{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: blue;
+    cursor: pointer;
+    margin-bottom: 1vh;
+    margin-top: 1.3vh;
+}
