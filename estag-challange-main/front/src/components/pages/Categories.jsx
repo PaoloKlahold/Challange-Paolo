@@ -8,6 +8,10 @@ import TableCategory from "../form/TableCategories.jsx";
 
 
 function Categories(){
+
+    if(localStorage.getItem("ActualUser") == '' || localStorage.getItem("ActualUser") == null){
+        window.location.href = "http://localhost:5173/"
+    }
     
     const [values, setValues] = useState({
         categoryName:"",

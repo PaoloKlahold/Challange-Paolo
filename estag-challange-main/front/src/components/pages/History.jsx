@@ -6,10 +6,16 @@ import $ from "jquery"
 import { useEffect } from 'react'
 
 function History(){
+    if(localStorage.getItem("ActualUser") == '' || localStorage.getItem("ActualUser") == null){
+        window.location.href = "http://localhost:5173/"
+    }
 
     const [data, setData] = useState([])
+
+    const code = localStorage.getItem("ActualUser")
+
     useEffect(()=> {
-        axios.get('http://localhost/Desafio1/Script/SelectHistory.php')
+        axios.get('http://localhost/Desafio1/Script/SelectHistory.php?code=' + code + '&hi')
         .then(res => setData(res.data))
         .catch(err => console.log(err))
     }, [])
@@ -51,11 +57,12 @@ function History(){
                             </thead>
                             <tbody>
                                 {
-                                    data.map(data => (
+                                data.map(data => (
                                         <tr>
                                             <td>{data.code}</td>
                                             <td>{data.total}</td>
                                             <td>{data.tax}</td>
+                                            
                                             <td><form onSubmit={(event) => handleSubmit(event)} method="POST" action="http://localhost/Desafio1/Script/SelectDetails.php"> <input className={style.invisible} name="code" key={data.code} value={data.code} id={data.code}/> <button type="submit" className={style.ButtonDeleteItem}>View</button></form></td>
                                         </tr>
                                     )

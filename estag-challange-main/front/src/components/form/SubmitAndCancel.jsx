@@ -21,8 +21,8 @@ function SubmitAndCancel() {
 
     const handleFinish = (e) => {
         e.preventDefault();
-
-        axios.get('http://localhost/Desafio1/Script/concluido.php')
+        const code = localStorage.getItem("ActualUser")
+        axios.get('http://localhost/Desafio1/Script/concluido.php?code=' + code + '&hi')
         .then(res => setResult(res.data))
         .catch(err => console.log(err))
         

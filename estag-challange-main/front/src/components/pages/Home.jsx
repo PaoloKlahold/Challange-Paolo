@@ -13,6 +13,10 @@ import SubmitAndCancel from "../form/SubmitAndCancel.jsx"
 
 
 function Home(){
+
+    if(localStorage.getItem("ActualUser") == '' || localStorage.getItem("ActualUser") == null){
+        window.location.href = "http://localhost:5173/"
+    }
     
     const [values, setValues] = useState({
         Amount: "",
@@ -27,7 +31,7 @@ function Home(){
         type:"text",
         placeholder:"Amount",
         errorMessage:"Amount should be positive and < 9,000 ",
-        pattern: "^[A-Za-z0-9]{1,50}$",
+        pattern: "^[0-9]{1,50}$",
         required: true}
 
     ]

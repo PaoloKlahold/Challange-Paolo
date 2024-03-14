@@ -2,12 +2,23 @@ import { Outlet, Link } from "react-router-dom";
 import styles from "./Layout.module.css";
 import profile from "./profile.png";
 
+
+
+const ClearUser = (e) => {
+  e.preventDefault();
+  localStorage.setItem("ActualUser", '')
+  window.location.href = "http://localhost:5173/"
+};
+
+
+
 const Layout = () => {
   return (
     <>
       <nav>
         <div className={styles.Itens}>
-          <h1><Link to="/">Suite Store</Link></h1>
+
+          <h1><Link to="/Home">Suite Store</Link></h1>
           
           <h2><Link to="/Products">Products</Link></h2>
           
@@ -22,8 +33,8 @@ const Layout = () => {
                     <img className={styles.genericprofile} src={profile} />
                 </div>
                 <div className={styles.dropdown_content}>
-                    <h1 href="#"></h1>
-                    <a href="Script/logout.php">log out ↗</a>
+                    <h1 href="#">{localStorage.getItem("ActualUser")}</h1>
+                    <a href="#" onClick={(event) => ClearUser(event)}>log out ↗</a>
                     
                 </div>
             </div>

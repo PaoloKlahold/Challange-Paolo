@@ -7,6 +7,12 @@ import TableProducts from "../form/TableProducts.jsx";
 import Selected from "../form/SelectProduct.jsx";
 
 function Products(){
+
+    if(localStorage.getItem("ActualUser") == '' || localStorage.getItem("ActualUser") == null){
+        window.location.href = "http://localhost:5173/"
+    }
+
+
     const [values, setValues] = useState({
         productName:"",
         productPrice:"",

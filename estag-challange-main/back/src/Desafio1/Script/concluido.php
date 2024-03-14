@@ -14,6 +14,8 @@ try {
     echo 'Não conectou';
 }
 
+$Actualuser = $_GET['code'];
+
 $sql4 = "SELECT pp.code, ph.htotal, ph.price, ph.hamount, pc.tax FROM public.home as ph, public.products as pp, public.categories as pc WHERE pp.code = ph.product_code AND pp.category_code = pc.code";
 try {
     $stmt = $myPDO->prepare($sql4);
@@ -36,7 +38,7 @@ try {
         }
         
         
-        $sqladdHistory = $myPDO->prepare("INSERT INTO public.HISTORY (Total, Tax) VALUES ($TotalT, $TaxT);");
+        $sqladdHistory = $myPDO->prepare("INSERT INTO public.HISTORY (Total, Tax, Huseremail) VALUES ($TotalT, $TaxT, '$Actualuser');");
             if ($sqladdHistory->execute()) {
             } else {
                 header("erro insert em hist");
