@@ -1,0 +1,25 @@
+.collumns{
+    display: flex;
+}
+
+.collumn1{
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+}
+.collumn2{
+    flex: 50%;
+    justify-content: center;
+}
+
+.formCategories {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    width: 70%;
+}
+
+.subdiv{
+    margin-top: 10vh;
+    
+}

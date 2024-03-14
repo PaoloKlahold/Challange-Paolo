@@ -1,0 +1,14 @@
+button{
+    background-color: #6A65FE;
+    
+    border-width: 0.1cap;
+    border-radius: 0.10cm;
+    cursor: pointer;
+    text-align: center;
+
+    font-size: 1.8cap;
+    height: 2cap;
+}
+
+
+

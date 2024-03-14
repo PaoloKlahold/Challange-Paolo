@@ -1,0 +1,215 @@
+
+#lno1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    
+    
+}
+#itens {
+    padding: 0.5cm;
+    font-size: 2cap;
+}
+
+#Product{
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2.5cap; 
+    margin-left: 4.5cap;
+    margin-bottom: 1.2cap;
+}
+.ProductNameInput{
+    width: 100%;
+}
+
+#collumns{
+    display: flex;
+}
+#collumn1{
+    flex: 50%;
+}
+#collumn2{
+    flex: 50%;
+}
+
+#inputProduct{
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#DivdropdownlistCategory{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.7cap;
+
+}
+.dropdownlistCategory{
+    justify-content: space-around;
+    display: flexbox;
+    flex-wrap: wrap;
+    align-content: center;
+    text-align: left;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2cap;
+    
+    width: 13cap;
+    
+    border: 2px solid #cccbcb;
+    border-radius: 4px;
+    height: 3.1cap;
+}
+
+.dropdownlistCategory  {
+    outline: 0;
+}
+
+.dropdownlistCategory.success  {
+    border-color: rgb(170, 170, 170);
+}
+
+.dropdownlistCategory.erro  {
+    border-color: rgb(255, 0, 0);
+}
+
+
+
+
+
+#test{
+    display: flex;
+    justify-content: center;
+
+}
+
+#subCollumns1 {
+    display: flex;
+    justify-content: space-between;
+    width: 84%;
+}
+
+
+#MenuItens{
+    justify-content: left;
+    display: none;
+    flex-wrap: wrap;
+    align-content: center;
+    text-align: left;
+
+    margin-left: 0.3cap;
+    margin-right: 0.1cap;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2cap;
+    font-weight: bold;
+}
+
+
+#TaxDiv{
+    margin: 0.5cap 3cap 0.2cap 0cap;
+    text-align: right;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;;
+    font-size: 2cap;
+    font-weight: bold;
+}
+.TaxTax{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;;
+    border-width: 0cap;
+    background-color: white;
+    font-size: 1.5cap;
+    font-size: 1.5cap;
+    color: gray;
+    width: 6cap;
+    margin-left: 1cap;
+    
+}
+#subCollumns2{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#fixed{
+    position: sticky;
+    border-radius: 2cap;
+    bottom: 0.1cap;
+    background-color: rgba(255, 255, 255, 0.8);
+    
+    
+}
+
+
+#form {
+    width: 100%;
+    margin: 2cap;
+    padding: 20px;
+    font-size: 12px;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.input-control input {
+    border: 2px solid #cccbcb;
+    border-radius: 4px;
+    display: block;
+    font-size: 1.5cap;
+    padding: 10px;
+    
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.sucess input {
+    border-color: #cccbcb;
+}
+
+.input-control.error input {
+    border-color: red;
+}
+
+.input-control .error {
+    color: red;
+    font-size: 1.3cap;
+    height: 13px;
+}
+
+
+
+.input-control-ProductNameInput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1cap;
+}
+
+.input-control-ProductNameInput input {
+    border: 2px solid #cccbcb;
+    border-radius: 4px;
+    display: block;
+    font-size: 1.5cap;
+    padding: 10px;
+    
+}
+
+.input-control-ProductNameInput input:focus {
+    outline: 0;
+}
+
+.input-control-ProductNameInput.sucess input {
+    border-color: #cccbcb;
+}
+
+.input-control-ProductNameInput.error input {
+    border-color: red;
+}
+
+.input-control-ProductNameInput .error {
+    color: red;
+    font-size: 1.3cap;
+    height: 13px;
+}
